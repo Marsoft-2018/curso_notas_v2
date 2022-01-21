@@ -96,4 +96,18 @@ class Calificacion{
         }
     }
 
+    public function listarModulos(){
+        $sql = "SELECT m.* FROM asignaturas m INNER JOIN distribucion_modulo dm ON dm.idasignatura = m.id WHERE dm.`idprograma` = '".$this->idPrograma."' 
+        AND dm.`idsemestre` = '".$this->idSemestre."'  ORDER BY m.nombre_modulo ASC";
+        $arreglo = array();
+        if($consulta = $this->conexion->conexion->query($sql)){
+            while($consulta_vu = mysqli_fetch_assoc($consulta)) {
+                    $arreglo[] = $consulta_vu;
+                
+            }
+            return $arreglo;
+            $this->conexion->cerrar();
+        }
+    }
+
 }

@@ -113,11 +113,7 @@
              <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
              </span>
-            </a>
-
-           
-
-         
+            </a>       
 
             <a onclick="cargar_contenido('contenido_principal','calificaciones/calificaciones_admin.php')" style="cursor: pointer;">
              <i class="fa  fa-sticky-note"></i> <span>Registro Notas</span>
@@ -125,14 +121,27 @@
               <i class="fa fa-angle-left pull-right"></i>
              </span>
             </a>
-
-            <a onclick="cargar_contenido('contenido_principal','medicamento/vista_medicamento.php')">
-             <i class="fa  fa-cog"></i> <span>Consultas</span>
-             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-             </span>
-            </a>
-       
-         
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>Consultas</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li>  <a onclick="cargar_contenido('contenido_principal','reportes/intro.php')" style="cursor: pointer;">
+                  <i class="fa  fa-file"></i> <span>Reporte general de notas</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a></li>
+                <li>  <a onclick="cargar_contenido('contenido_principal','usuario/vista_usuario.php')" style="cursor: pointer;">
+                <i class="fa fa-user"></i> <span>Otros...</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a></li>   
+              </ul>
+            </li>       
        
       </ul>
