@@ -21,7 +21,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Estudiante</th>
+                   
                     <th>Programa</th>
                     <th>Asignatura</th>
                     <th>Definitiva</th>

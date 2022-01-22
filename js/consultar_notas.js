@@ -23,7 +23,7 @@ function listar_consulta_notas(){
         "order":[[1,'asc']],
         "columns":[
             {"defaultContent":""},
-            {"data":"nombre"},
+            
             {"data":"nombre_programa"},
             {"data":"nombre_modulo"},
             {"data":"definitiva"},
