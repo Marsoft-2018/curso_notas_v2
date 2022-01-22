@@ -55,7 +55,11 @@
                 $obj->idSemestre = $_REQUEST['semestre'];
                 $obj->idJornada = $_REQUEST['jornada'];
                 $consulta = $obj->listar_estudiantes();
-                foreach ($consulta as $key => $estudiante) { ?>
+                foreach ($consulta as $key => $estudiante) { 
+                    $promedio = 0;
+                    $suma = 0;
+                    $cant = 0;
+                    ?>
                 <tr>
                     <td><?php echo $estudiante['apellidos'].' '.$estudiante['nombres'] ?></td>                    
                         <?php 
@@ -72,12 +76,20 @@
                                     if ($d['definitiva'] == null){
                                         echo "<td>-</td>";
                                     }else{
+                                        $suma += $d['definitiva'];
+                                        $cant++;
                                         echo "<td>".$d['definitiva']."</td>";
                                     }
                                 }
                             }
                         ?>
-                    <td></td>
+                    <td><?php 
+                        if($cant > 0){
+                           echo $promedio = $suma/$cant;
+                        }else{
+                            echo "-";
+                        }
+                         ?></td>
                     <td></td>
                 </tr>            
             <?php
