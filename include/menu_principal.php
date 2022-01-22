@@ -135,12 +135,12 @@
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
               </a></li>
-                <li>  <a onclick="cargar_contenido('contenido_principal','usuario/vista_usuario.php')" style="cursor: pointer;">
-                <i class="fa fa-user"></i> <span>Otros...</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a></li>   
+                <li>  <a onclick="cargar_contenido('contenido_principal','reportes/reporte_notas_alumnos.php')">
+             <i class="fa  fa-cog"></i> <span>Consultas Notas </span>
+             <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a></li>   
               </ul>
             </li>       
        
