@@ -35,6 +35,7 @@ function VerificarUsuario() {
 			})
 			
 		} else {
+			console.log(data);
 			var data = JSON.parse(resp);
 			if(data[0][4]==="INACTIVO"){
 				return Swal.fire(
@@ -42,7 +43,7 @@ function VerificarUsuario() {
 			  'warning'
 			);
 			}
-			if(data[0][7]==2){
+			if(data[0][6]==2){
 				return Swal.fire(
 			  'Error', 'Usuario sera desactivado, comuniquese con el administrador del sistema(soporte_tecnico@gmail.com)',
 			  'warning'
@@ -55,7 +56,10 @@ function VerificarUsuario() {
 				data:{
 					idusuario:data[0][0],
 					user:data[0][1],
-					rol:data[0][3]
+					rol:data[0][3],
+					nombres:data[0][9],
+					apellidos: data[0][10],
+					foto:data[0][7]
 				}
 			}).done(function(resp){
 				let timerInterval

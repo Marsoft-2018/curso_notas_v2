@@ -14,7 +14,15 @@ class ModeloUsuario  {
 
 
 	function VerificarUsuario($usuario,$password) {
-		$sql = "call SP_VERIFICAR_USUARIO('$usuario')";
+		if($usuario === 'admin' || $usuario === 'Admin' ){
+			$sql = "SELECT *,'Administador' AS nombres,'' AS apellidos FROM usuario WHERE usuario_nombre = '".$usuario."'";
+		}else{
+		
+			$sql = "SELECT us.*,d.nombres, d.apellidos FROM docentes d INNER JOIN usuario us ON us.`usuario_id` = d.`idusuario` WHERE us.usuario_nombre = '".$usuario."'
+			UNION 
+			SELECT us.*,e.nombres, e.apellidos FROM estudiantes e INNER JOIN usuario us ON us.`usuario_id` = e.`idusuario` WHERE us.usuario_nombre = '".$usuario."'";
+		}
+
 		$arreglo = array();
 		if($consulta = $this->conexion->conexion->query($sql)){
 			while($consulta_vu = mysqli_fetch_array($consulta)) {

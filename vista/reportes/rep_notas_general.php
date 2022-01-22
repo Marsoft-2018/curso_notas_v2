@@ -6,26 +6,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Montserrat:wght@600;700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <style>
+        *{
+            font-family: 'Dosis', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-family: 'Quicksand', sans-serif;
+        }
         table{
             border-collapse: collapse;
             width: 100%;
         }
 
-        table td{
+        table th, td{
             border: 1px solid #000;
+        }
+        header{
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+
+        }
+        header .membrete{
+            flex-grow: 1;
+            width: 10%;
+            display:flex;
+        }
+        .membrete img{
+            width: 70px;
+        }
+        header .membrete p{
+            font-size: 0.5em;
+            text-align: justify;
+
+        }
+
+        header .encabezado{
+            flex-grow: 3;
+        }
+
+        header .encabezado h1, h2, h3{
+            margin: 0px;
+            padding: 1px;
+            padding-left: 20px;
+        }
+        .datos{
+            display: flex;
+            justify-content: space-between;
+        }
+        .datos span{
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
     <?php
-        //include '../../modelo/modelo_estudiantes.php';
         include '../../modelo/modelo_calificacion.php';
         include '../../modelo/modelo_programas.php';
         include '../../modelo/modelo_asignaturas.php';
-
+        $programa = "ENfermería";
+        $semestre = "1";
+        $jornada = "Mañana";
     ?>
-
+    <header>
+        <div class="membrete">
+            <img src="../../plantilla/dist/img/escudo.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis dignissimos at magni quibusdam doloribus cum, doloremque </p>
+        </div>
+        <div class="encabezado">
+            <h2>REPORTE GENERAL DE CALIFICACIONES</h2>
+            <div class="datos">
+                <h3>Programa: <span><?php echo $programa ?></span></h3>
+                <h3>Semetre: <span><?php echo $semestre ?></span></h3>
+                <h3>Jornada: <span><?php echo $jornada ?></span></h3>
+            </div>
+        </div>
+        
+        
+    </header>
     <table>
         <thead>
             <tr>
@@ -43,7 +103,6 @@
                      }
                 ?>
                 <th>Promedio</th>
-                <th>Puesto</th>
             </tr>
         </thead>
         <tbody>
@@ -90,7 +149,6 @@
                             echo "-";
                         }
                          ?></td>
-                    <td></td>
                 </tr>            
             <?php
                 }
