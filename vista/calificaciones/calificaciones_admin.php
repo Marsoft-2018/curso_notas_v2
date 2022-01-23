@@ -46,8 +46,6 @@
                 </div>              
               </div>
               <div id="planilla">
-
-              planilla admin
               </div>
             </div>
             <!-- /.box-body -->
