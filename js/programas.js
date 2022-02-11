@@ -211,7 +211,7 @@ function Registrar_Programa(){
           idsede:idsede
         }
       }).done(function(resp){
-      	alert(resp);
+      //	alert(resp);
         if(resp > 0) {
             if(resp==1) {
                 $('#modal_registro').modal('hide');

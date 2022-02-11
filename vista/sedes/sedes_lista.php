@@ -65,7 +65,7 @@
             <div class="modal-body">
             	<div class="row">
             		 <div class="col-lg-12">
-	                  <label for="">Perfil:</label>
+	                  <label for="">Nombre Sede:</label>
 	                  <input type="text" id="txt_nombre" name="" class="form-control" placeholder="Nombre"><br>
 	              </div>
 

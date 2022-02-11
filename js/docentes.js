@@ -16,7 +16,7 @@ function ListarDocente(){
             
         },
         "columns":[
-            {"data":"posicion"},
+			{"defaultContent":""},
             {"data":"id"},
 			{"data":"tipo_documento"},
 			{"data":"nombres"},

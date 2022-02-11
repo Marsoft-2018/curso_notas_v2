@@ -185,7 +185,7 @@ function AbrirModalRegistro() {
         if(resp > 0) {
             if(resp==1) {
                 $('#modal_registro').modal('hide');
-                Swal.fire("Mensaje  de confirmaciòn","PerfSEDEil registrado exitosamente",
+                Swal.fire("Mensaje  de confirmaciòn","Sede registrada exitosamente",
                     "success")
                 .then((value)=>{
                     listar_sedes();
@@ -199,7 +199,7 @@ function AbrirModalRegistro() {
                   );
             }
         }else {
-            return Swal.fire('Mensaje de error','SEDE no insertado','warning');
+            return Swal.fire('Mensaje de error','SEDE no insertada','warning');
         }
       })
     }
