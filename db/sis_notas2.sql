@@ -49,9 +49,11 @@ CREATE TABLE `calificaciones` (
   KEY `idMatricula` (`idMatricula`),
   CONSTRAINT `calificaciones_ibfk_1` FOREIGN KEY (`idasignatura`) REFERENCES `asignaturas` (`id`),
   CONSTRAINT `calificaciones_ibfk_2` FOREIGN KEY (`idMatricula`) REFERENCES `matriculas` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `calificaciones` */
+
+insert  into `calificaciones`(`id`,`idMatricula`,`idasignatura`,`nota`,`fregistro`,`estatus`) values (1,1,1,3,'2022-07-29 19:30:58',NULL),(2,1,1,3.5,'2022-07-29 19:31:04',NULL),(3,1,1,4,'2022-07-29 19:31:13',NULL),(4,1,2,4,'2022-07-31 12:51:38',NULL),(5,1,2,4.2,'2022-07-31 12:51:43',NULL),(6,1,2,3,'2022-07-31 12:51:46',NULL);
 
 /*Table structure for table `distribucion_modulo` */
 
@@ -73,7 +75,7 @@ CREATE TABLE `distribucion_modulo` (
 
 /*Data for the table `distribucion_modulo` */
 
-insert  into `distribucion_modulo`(`idprograma`,`idasignatura`,`idsemestre`,`fregistro`,`estatus`) values (1,1,1,'2022-02-11 08:54:49','ASIGNADO'),(1,2,1,'2022-02-11 08:56:06','ASIGNADO'),(1,3,2,'2022-02-11 08:56:21','ASIGNADO'),(1,4,3,'2022-02-11 08:56:34','ASIGNADO'),(1,5,4,'2022-02-11 08:56:42','ASIGNADO');
+insert  into `distribucion_modulo`(`idprograma`,`idasignatura`,`idsemestre`,`fregistro`,`estatus`) values (1,1,1,'2022-02-11 08:54:49','ASIGNADO'),(1,2,1,'2022-02-11 08:56:06','ASIGNADO'),(1,3,2,'2022-02-11 08:56:21','ASIGNADO'),(1,4,3,'2022-02-11 08:56:34','ASIGNADO'),(1,5,4,'2022-02-11 08:56:42','ASIGNADO'),(1,3,4,'2022-07-31 12:53:50','ASIGNADO');
 
 /*Table structure for table `distribucion_programas` */
 
