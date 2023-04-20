@@ -28,7 +28,7 @@ class Modelo_Estudiantes {
 	mt.apellidos_ref, 	mt.parentesco, 
 	mt.direccion_ref, 	mt.telefono_ref, 
 	mt.correo_ref, 	es.fregistro, 
-	es.estatus, 	es.idusuario, 
+	es.estatus, 	es.idusuario, es.foto,
 	us.usuario_nombre, 	us.usuario_email
 FROM
 	matriculas AS mt
@@ -106,14 +106,14 @@ FROM
     $estrato,$grupo_poblacion,$eps,$nivel_sisben ,$formacion ,$ocupacion ,
     $usu,$contra,$rol,$correo, $idsede,$idprograma,$idsemestre,$idjornada,
      $fecha_matricula,
-     $nombre_ref, $apellidos_ref ,$parentesco_ref,$direccion_ref ,$telefono_ref,$email_ref){
-		$sql = "call  SP_REGISTRAR_ESTUDIANTE('$nombre','$apellidos','$tipo_doc',
+     $nombre_ref, $apellidos_ref ,$parentesco_ref,$direccion_ref ,$telefono_ref,$email_ref,$ruta){
+		$sql = "call  SP_REGISTRAR_ESTUDIANTE2('$nombre','$apellidos','$tipo_doc',
 		'$numero','$fnac','$sexo','$estado_civil','$direccion','$depto',
 		'$ciudad','$telefono','$tipo_vivienda','$estrato','$grupo_poblacion',
 		'$eps','$nivel_sisben','$formacion','$ocupacion',
 			'$usu','$contra','$rol','$correo', '$idsede','$idprograma','$idsemestre',
 			'$idjornada','$fecha_matricula','$nombre_ref','$apellidos_ref',
-			'$parentesco_ref','$direccion_ref','$telefono_ref','$email_ref')";
+			'$parentesco_ref','$direccion_ref','$telefono_ref','$email_ref','$ruta')";
 			if($consulta = $this->conexion->conexion->query($sql)){
 				if($row = mysqli_fetch_array($consulta)) {
 					return	$id =trim($row[0]);

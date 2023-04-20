@@ -16,9 +16,9 @@ function ListarEstudiante(){
           
         },
         "columns":[
-             {"defaultContent":""},
+            {"defaultContent":""},
             {"data":"nombres"},
-             {"data":"apellidos"},
+            {"data":"apellidos"},
 			{"data":"tipo_documento"},
 			{"data":"documento"},
 			{"data":"fecha_nacimiento"},
@@ -37,6 +37,12 @@ function ListarEstudiante(){
 			{"data":"departamento"},
 			{"data":"ciudad"},
 			{"data":"telefono"},
+            {"data":"foto",
+
+            render: function (data, type, row ) {
+            	 return '<img src="../'+data+'" class="img-circle" style="width:40px">';
+            	}
+        	}, 
 				
           
             {"data":"tipo_vivienda"},
@@ -361,6 +367,77 @@ function listar_combo_jornada() {
 	})
 }
 
+/*funcion dos*/
+function Registrar_Estudiante2() {
+ 
+    
+
+    var archivo = $('#imagen').val();
+
+ 
+    
+
+    var f = new Date();
+    var extension = archivo.split('.').pop();
+    var nombrearchivo = "IMG"+f.getDate()+""+(f.getMonth()+1)+""+f.getFullYear()+""+
+    f.getHours()+""+f.getMinutes()+""+f.getSeconds()+"."+extension;
+   
+    var formData = new FormData();
+    var foto = $("#imagen")[0].files[0];
+    formData.append('codigo',codigo);
+    formData.append('nombre',nombre);
+    formData.append('presentacion',presentacion);
+    
+    formData.append('idbodega',idbodega);
+    formData.append('idcategoria',idcategoria);
+    formData.append('cant_minima',cant_minima);
+    formData.append('cant_inicial',cant_inicial);
+    formData.append('idunidad',idunidad);
+    formData.append('tipo_producto',tipo_producto);
+    formData.append('id_marca',id_marca);
+    formData.append('foto',foto);
+    formData.append('nombrearchivo',nombrearchivo);
+    formData.append('precio_compra',precio_compra);
+    formData.append('precio_venta',precio_venta);
+    formData.append('idempresa',idempresa);
+
+   $.ajax({
+      url:'../controlador/productos/controlador_registro_productos.php',
+      type:'POST',
+      data:formData,
+      contentType:false,
+      processData:false,
+      success:function(resp) {
+       //  alert(resp);
+        if(resp != 0) {
+
+          if(resp > 0) {
+                   if(resp==1) {
+                  $('#modal_registro').modal('hide');
+                  Swal.fire("Mensaje  de confirmaciòn","Producto registrado exitosamente",
+                      "success")
+                  .then((value)=>{
+                      listar_productos();
+                LimpiarCampos();
+                      t_productos.ajax.reload();
+                  
+                  });
+              } else {
+               LimpiarCampos();
+                  return Swal.fire('Mensaje de error', 'Producto ya existe en el sistema, utilice otro', 'warning'
+                    );
+              }
+          }else {
+              return Swal.fire('Mensaje de error','Producto no insertado','warning');
+          }
+        }
+      
+      }
+
+    });
+    return false;
+
+  }
 
 
 
@@ -376,6 +453,7 @@ function Matricular_Estudiante() {
     var depto = $('#txt_depto').val();
     var ciudad = $('#txt_ciudad').val();
     var telefono = $('#txt_telefono').val();
+    var archivo = $('#imagen').val();
    // var email = $('#txt_correo').val();
     var tipo_vivienda = $('#cmb_tipo_vivienda').val();
     var estrato = $('#txt_estrato').val();
@@ -388,7 +466,7 @@ function Matricular_Estudiante() {
     var usu = $("#txt_usu").val();
     var contra = $("#txt_contra").val();
     var rol = $("#cmb_rol_matricula").val();
-     var correo = $("#txt_email").val();
+    var correo = $("#txt_email").val();
 
     //para la matricula
 
@@ -413,73 +491,148 @@ function Matricular_Estudiante() {
         return Swal.fire('Mensaje de error', 'Digite los campos estan vacios', 'warning');
     }
 
+    var f = new Date();
+    var extension = archivo.split('.').pop();
+    var nombrearchivo = "IMG"+f.getDate()+""+(f.getMonth()+1)+""+f.getFullYear()+""+
+    f.getHours()+""+f.getMinutes()+""+f.getSeconds()+"."+extension;
+
+    var formData = new FormData();
+    var foto = $("#imagen")[0].files[0];
+
+    formData.append('nombre',nombre);
+    formData.append('apellidos',apellidos);
+    formData.append('tipo_doc',tipo_doc);
+    formData.append('numero',numero);
+    formData.append('fnac',fnac);
+    formData.append('sexo',sexo);
+    formData.append('estado_civil',estado_civil);
+    formData.append('direccion',direccion);
+    formData.append('depto',depto);
+    formData.append('ciudad',ciudad);
+    formData.append('telefono',telefono);
+    formData.append('tipo_vivienda',tipo_vivienda);
+    formData.append('estrato',estrato);
+    formData.append('grupo_poblacion',grupo_poblacion);
+    formData.append('eps',eps);
+    formData.append('nivel_sisben',nivel_sisben);
+    formData.append('formacion',formacion);
+    formData.append('ocupacion',ocupacion);
+    formData.append('usu',usu);
+    formData.append('foto',foto);
+    formData.append('nombrearchivo',nombrearchivo);
+    formData.append('contra',contra);
+    formData.append('rol',rol);
+    formData.append('correo',correo);
+    formData.append('idsede',idsede);
+    formData.append('idprograma',idprograma);
+    formData.append('idsemestre',idsemestre);
+    formData.append('idjornada',idjornada);
+    formData.append('fecha_matricula',fecha_matricula);
+    formData.append('nombre_ref',nombre_ref);
+    formData.append('apellidos_ref',apellidos_ref);
+    formData.append('parentesco_ref',parentesco_ref);
+    formData.append('direccion_ref',direccion_ref);
+    formData.append('telefono_ref',telefono_ref);
+    formData.append('email_ref',email_ref);
+    
+
     $.ajax({
         url: '../controlador/estudiantes/controlador_registro_estudiante.php',
         type: 'POST',
-        data: {
-            nombre: nombre,
-            apellidos: apellidos,
-            tipo_doc: tipo_doc,
-            numero: numero,
-            fnac: fnac,
-            sexo: sexo,
-            estado_civil: estado_civil,
-            direccion: direccion,
-            depto: depto,
-            ciudad: ciudad,
-            telefono: telefono,
-           /// email: email,
-            tipo_vivienda: tipo_vivienda,
-            estrato: estrato,
-            grupo_poblacion: grupo_poblacion,
-            eps: eps,
-            nivel_sisben: nivel_sisben,
-            formacion: formacion,
-            ocupacion: ocupacion,
+        data:formData,
+         contentType:false,
+         processData:false,
+         success:function(resp) {
+			alert(resp);
+			if(resp != 0) {
+				if(resp > 0) {
+                 if(resp==1) {
+                $('#modal_registro').modal('hide');
+                Swal.fire("Mensaje  de confirmaciòn","Estudiante registrado exitosamente",
+                    "success")
+                .then((value)=>{
+                    ListarEstudiante();
+               LimpiarCampos();
+                    table.ajax.reload();
+                
+                });
+            } else {
+             LimpiarCampos();
+                return Swal.fire('Mensaje de error', 'Estudiante ya existe en el sistema, utilice otro', 'warning'
+                  );
+            }
+        }else {
+            return Swal.fire('Mensaje de error','Estudiante no insertado','warning');
+        }
+			}
+		
+		}
+        // data: {
+        //     nombre: nombre,
+        //     apellidos: apellidos,
+        //     tipo_doc: tipo_doc,
+        //     numero: numero,
+        //     fnac: fnac,
+        //     sexo: sexo,
+        //     estado_civil: estado_civil,
+        //     direccion: direccion,
+        //     depto: depto,
+        //     ciudad: ciudad,
+        //     telefono: telefono,
+        //    /// email: email,
+        //     tipo_vivienda: tipo_vivienda,
+        //     estrato: estrato,
+        //     grupo_poblacion: grupo_poblacion,
+        //     eps: eps,
+        //     nivel_sisben: nivel_sisben,
+        //     formacion: formacion,
+        //     ocupacion: ocupacion,
             //idacudiente: idacudiente,
-            usu: usu,
-            contra: contra,
-            rol: rol,
-            correo:correo,
-            idsede: idsede,
-            idprograma: idprograma,
-            idsemestre: idsemestre,
-            idjornada: idjornada,
-            fecha_matricula:fecha_matricula,
+            // usu: usu,
+            // contra: contra,
+            // rol: rol,
+            //correo:correo,
+            // idsede: idsede,
+            // idprograma: idprograma,
+            // idsemestre: idsemestre,
+            // idjornada: idjornada,
+            // fecha_matricula:fecha_matricula,
 
 
             //referencia familiar
-            nombre_ref: nombre_ref,
-            apellidos_ref: apellidos_ref,
-            parentesco_ref: parentesco_ref,
-            direccion_ref: direccion_ref,
-            telefono_ref: telefono_ref,
-            email_ref: email_ref
+            // nombre_ref: nombre_ref,
+            // apellidos_ref: apellidos_ref,
+            // parentesco_ref: parentesco_ref,
+            // direccion_ref: direccion_ref,
+            // telefono_ref: telefono_ref,
+            // email_ref: email_ref
 
-        }
-    }).done(function(resp) {
-        alert(resp);
-        if (resp > 0) {
+        // }
+    // }).done(function(resp) {
+    //     alert(resp);
+    //     if (resp > 0) {
 
-            if (resp == 1) {
+    //         if (resp == 1) {
 
-                $('#modal_registro').modal('hide');
-                Swal.fire("Mensaje  de confirmaciòn", "Estudiante registrado exitosamente",
-                        "success")
-                    .then((value) => {
-                        listar_estudiantes();
-                        // LimpiarCampos();
-                        t_estudiante.ajax.reload();
+    //             $('#modal_registro').modal('hide');
+    //             Swal.fire("Mensaje  de confirmaciòn", "Estudiante registrado exitosamente",
+    //                     "success")
+    //                 .then((value) => {
+    //                     listar_estudiantes();
+    //                     // LimpiarCampos();
+    //                     t_estudiante.ajax.reload();
 
-                    });
-            } else {
-                // LimpiarCampos();
-                return Swal.fire('Mensaje de error', ' Estudiante y/o Documento ya existe en el sistema, utilice otro', 'warning');
-            }
-        } else {
-            return Swal.fire('Mensaje de error', 'Estudiante no insertado', 'warning');
-        }
-    })
+    //                 });
+    //         } else {
+    //             // LimpiarCampos();
+    //             return Swal.fire('Mensaje de error', ' Estudiante y/o Documento ya existe en el sistema, utilice otro', 'warning');
+    //         }
+    //     } else {
+    //         return Swal.fire('Mensaje de error', 'Estudiante no insertado', 'warning');
+    //     }
+    // })
+    });
+    return false;
 }
 
 
@@ -563,4 +716,12 @@ function Modificar_Estudiante() {
              );
          }
         })
+}
+
+
+function LimpiarCampos() {
+	$("#txt_usu").val("");
+	$("#txt_pass").val("");
+	$("#txt_email").val("");
+	$("#txt_email").val("");
 }

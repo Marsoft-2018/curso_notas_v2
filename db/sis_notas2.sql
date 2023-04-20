@@ -49,11 +49,11 @@ CREATE TABLE `calificaciones` (
   KEY `idMatricula` (`idMatricula`),
   CONSTRAINT `calificaciones_ibfk_1` FOREIGN KEY (`idasignatura`) REFERENCES `asignaturas` (`id`),
   CONSTRAINT `calificaciones_ibfk_2` FOREIGN KEY (`idMatricula`) REFERENCES `matriculas` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `calificaciones` */
 
-insert  into `calificaciones`(`id`,`idMatricula`,`idasignatura`,`nota`,`fregistro`,`estatus`) values (1,1,1,3,'2022-07-29 19:30:58',NULL),(2,1,1,3.5,'2022-07-29 19:31:04',NULL),(3,1,1,4,'2022-07-29 19:31:13',NULL),(4,1,2,4,'2022-07-31 12:51:38',NULL),(5,1,2,4.2,'2022-07-31 12:51:43',NULL),(6,1,2,3,'2022-07-31 12:51:46',NULL);
+insert  into `calificaciones`(`id`,`idMatricula`,`idasignatura`,`nota`,`fregistro`,`estatus`) values (1,1,1,3,'2022-07-29 19:30:58',NULL),(2,1,1,3.5,'2022-07-29 19:31:04',NULL),(3,1,1,4,'2022-07-29 19:31:13',NULL),(4,1,2,4,'2022-07-31 12:51:38',NULL),(5,1,2,4.2,'2022-07-31 12:51:43',NULL),(6,1,2,3,'2022-07-31 12:51:46',NULL),(7,1,1,4,'2023-04-13 15:28:02',NULL),(8,1,1,5,'2023-04-13 15:28:16',NULL);
 
 /*Table structure for table `distribucion_modulo` */
 

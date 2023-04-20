@@ -23,7 +23,7 @@ $nivel_sisben = htmlspecialchars($_POST['nivel_sisben'],ENT_QUOTES,'UTF-8');
 $formacion = htmlspecialchars($_POST['formacion'],ENT_QUOTES,'UTF-8');
 $ocupacion = htmlspecialchars($_POST['ocupacion'],ENT_QUOTES,'UTF-8');
 //$idacudiente = htmlspecialchars($_POST['idacudiente'],ENT_QUOTES,'UTF-8');
-
+$nombrearchivo = htmlspecialchars($_POST['nombrearchivo'],ENT_QUOTES,'UTF-8');
 $usu = htmlspecialchars($_POST['usu'],ENT_QUOTES,'UTF-8');
 $contra =  password_hash($_POST['contra'], PASSWORD_DEFAULT,['cost'=>10]);
 $rol = htmlspecialchars($_POST['rol'],ENT_QUOTES,'UTF-8');
@@ -45,13 +45,38 @@ $email_ref = htmlspecialchars($_POST['email_ref'],ENT_QUOTES,'UTF-8');
 
 
 
-$consulta =$MES->Registrar_Estudiante($nombre,$apellidos,$tipo_doc,$numero,$fnac,$sexo,
-    $estado_civil,$direccion,$depto,$ciudad,$telefono,$tipo_vivienda,
-    $estrato,$grupo_poblacion,$eps,$nivel_sisben ,$formacion ,$ocupacion ,
-    $usu,$contra,$rol,$correo, $idsede,$idprograma,$idsemestre,$idjornada,
-     $fecha_matricula,
-     $nombre_ref, $apellidos_ref ,$parentesco_ref,$direccion_ref ,$telefono_ref,$email_ref);
-echo $consulta;
+// $consulta =$MES->Registrar_Estudiante($nombre,$apellidos,$tipo_doc,$numero,$fnac,$sexo,
+//     $estado_civil,$direccion,$depto,$ciudad,$telefono,$tipo_vivienda,
+//     $estrato,$grupo_poblacion,$eps,$nivel_sisben ,$formacion ,$ocupacion ,
+//     $usu,$contra,$rol,$correo, $idsede,$idprograma,$idsemestre,$idjornada,
+//      $fecha_matricula,
+//      $nombre_ref, $apellidos_ref ,$parentesco_ref,$direccion_ref ,$telefono_ref,$email_ref);
+// echo $consulta;
+
+
+if(is_array($_FILES) && count($_FILES)>0) {
+    if(move_uploaded_file($_FILES['foto']['tmp_name'],"img/".$nombrearchivo)) {
+        $ruta ='controlador/estudiantes/img/'.$nombrearchivo;
+        $consulta = $MES->Registrar_Estudiante($nombre,$apellidos,$tipo_doc,$numero,$fnac,$sexo,
+            $estado_civil,$direccion,$depto,$ciudad,$telefono,$tipo_vivienda,
+            $estrato,$grupo_poblacion,$eps,$nivel_sisben ,$formacion ,$ocupacion ,
+            $usu,$contra,$rol,$correo, $idsede,$idprograma,$idsemestre,$idjornada,
+             $fecha_matricula,
+             $nombre_ref, $apellidos_ref ,$parentesco_ref,$direccion_ref ,$telefono_ref,$email_ref,$ruta);
+        echo $consulta;
+    } else {
+        echo 0;
+    }
+ }else {
+    $ruta ='controlador/estudiantes/img/avatar.png';
+        $consulta = $MES->Registrar_Estudiante($nombre,$apellidos,$tipo_doc,$numero,$fnac,$sexo,
+            $estado_civil,$direccion,$depto,$ciudad,$telefono,$tipo_vivienda,
+            $estrato,$grupo_poblacion,$eps,$nivel_sisben ,$formacion ,$ocupacion ,
+            $usu,$contra,$rol,$correo, $idsede,$idprograma,$idsemestre,$idjornada,
+            $fecha_matricula,
+            $nombre_ref, $apellidos_ref ,$parentesco_ref,$direccion_ref ,$telefono_ref,$email_ref,$ruta);
+        echo $consulta;
+ }
 
 
 

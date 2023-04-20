@@ -54,7 +54,7 @@
                     <th>Departamento</th>
                     <th>Ciudad</th>
                     <th>Telefono</th>
-                    
+                    <th>Foto</th>   
                     <th>Vivienda</th>
                     <th>Estrato</th>
                     <th>Poblacion</th>
@@ -146,12 +146,12 @@
            <label for=""><b>Dirección</b> </label>
            <input type="text" id="txt_direccion" class="form-control" placeholder="dir ">
         </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
                     <label for="">Departamento:</label>
                      <input type="text" id="txt_depto" class="form-control" placeholder="dir ">
         </div>
 
-         <div class="col-lg-4">
+         <div class="col-lg-3">
                     <label for="">Ciudad:</label>
                     <input type="text" id="txt_ciudad" class="form-control" placeholder="Ciudad " 
                    
@@ -159,11 +159,14 @@
         </div>
         
 
-      	<div class="col-lg-4">
+      	<div class="col-lg-3">
       	   <label for=""><b>Teléfono</b> </label>
            <input type="text" id="txt_telefono" class="form-control" placeholder="tel " onkeypress="return soloNumeros(event)">
       	</div>
-       
+        <div class="col-lg-3">
+	     	  <label for="">Subir Imagen</label>
+	      	<input type="file" id="imagen" accept="imagen/*">
+	     </div>
 
       	
 
