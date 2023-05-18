@@ -35,9 +35,6 @@ function ListarDocente(){
               }
             },
 
-			
-          
-
             {"data":"fecha_nacimiento"},
             {"data":"nombre_profesion"},
            

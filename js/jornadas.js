@@ -44,6 +44,12 @@ function listar_jornadas(){
         "language":idioma_espanol,
         select: true
     });
+    t_jornada.on( 'draw.dt', function () {
+      var PageInfo = $('#tabla_jornadas').DataTable().page.info();
+      t_jornada.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+              cell.innerHTML = i + 1 + PageInfo.start;
+          } );
+      } );
 
     document.getElementById("tabla_jornadas_filter").style.display="none";
 

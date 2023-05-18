@@ -58,6 +58,13 @@ function listar_distribucion_modulos(){
         "language":idioma_espanol,
         select: true
     });
+    t_distribucion_programas.on( 'draw.dt', function () {
+        var PageInfo = $('#tabla_programas_distribuir').DataTable().page.info();
+        t_distribucion_programas.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+                cell.innerHTML = i + 1 + PageInfo.start;
+            } );
+        } );
+  
 
     document.getElementById("tabla_programas_distribuir_filter").style.display="none";
 

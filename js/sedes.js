@@ -45,7 +45,12 @@ function listar_sedes(){
         "language":idioma_espanol,
         select: true
     });
-
+    t_sedes.on( 'draw.dt', function () {
+      var PageInfo = $('#tabla_sedes').DataTable().page.info();
+      t_sedes.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+              cell.innerHTML = i + 1 + PageInfo.start;
+          } );
+      } );
     document.getElementById("tabla_sedes_filter").style.display="none";
 
 	      $('input.global_filter').on( 'keyup click', function () {

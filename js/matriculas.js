@@ -60,6 +60,12 @@ function listar_matriculas(){
         "language":idioma_espanol,
         select: true
     });
+	t_matriculas.on( 'draw.dt', function () {
+        var PageInfo = $('#tabla_matriculas').DataTable().page.info();
+        t_matriculas.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+                cell.innerHTML = i + 1 + PageInfo.start;
+            } );
+        } );
 
     document.getElementById("tabla_matriculas_filter").style.display="none";
 
