@@ -17,7 +17,8 @@ function listar_asignaturas(){
         "columns":[
             {"defaultContent":""},
             {"data":"nombre_modulo"},
-             {"data":"cant_horas"},
+            {"data":"cant_horas"},
+            {"data":"creditos"},
             {"data":"fregistro"},
             {"data":"estatus",
             render: function (data, type, row ) {
@@ -29,16 +30,17 @@ function listar_asignaturas(){
               }
             }, 
 
-            {
+             {
                 "data": "estatus",
                 render: function(data, type, row) {
                     if (data == 'ACTIVO') {
-                        return "<button style='font-size:13px;' type='button' class='editar btn btn-primary'><i class='fa fa-edit'></i></button>&nbsp;&nbsp;&nbsp <button style='font-size:13px;' type='button' class='desactivar btn btn-danger' ><i class='fa fa-trash' disabled ></i></button>&nbsp;&nbsp;&nbsp;&nbsp;<button style='font-size:13px;' type='button' class='activar btn btn-success' disabled><i class='fa fa-check'></i></button>";
+                        return "<button style='font-size:13px;' type='button' class='editar btn btn-primary'><i class='fa fa-edit'></i></button>&nbsp;&nbsp;&nbsp <button style='font-size:13px;' type='button' class='desactivar btn btn-danger' ><i class='fa fa-trash' disabled ></i></button>&nbsp;&nbsp;&nbsp;&nbsp;<button style='font-size:13px;' type='button' class='activar btn btn-success' disabled><i class='fa fa-check'></i></button> <button style='font-size:13px;' type='button' class='imprimir btn btn-primary'><i class='fa fa-print'></i></button>&nbsp;&nbsp;";
                     } else {
                         return "<button style='font-size:13px;' type='button' class='editar btn btn-primary'><i class='fa fa-edit'></i></button>&nbsp;&nbsp;&nbsp <button style='font-size:13px;' type='button' class='desactivar btn btn-danger' disabled ><i class='fa fa-trash'  ></i></button>&nbsp;&nbsp;&nbsp;&nbsp;<button style='font-size:13px;' type='button' class='activar btn btn-success' ><i class='fa fa-check'></i></button>";
                     }
                 }
             },
+
         
       ],
 
@@ -68,9 +70,11 @@ function listar_asignaturas(){
 		    }
     	$("#modal_editar").modal({backdrop:'static',keyboard:false})
 		$('#modal_editar').modal('show');
-		$('#txt_idrol').val(data.id);
-		$('#txt_nombre_rol_actual').val(data.nombre_rol);
-		$('#txt_nombre_rol_nuevo').val(data.nombre_rol);
+		$('#txt_idasignatura').val(data.id);
+		$('#txt_nombre_modulo_actual').val(data.nombre_modulo);
+		$('#txt_nombre_modulo_nuevo').val(data.nombre_modulo);
+        $('#txt_cantidad_editar').val(data.cant_horas);
+        $('#txt_creditos_editar').val(data.creditos);
 		$('#cmb_estatus').val(data.estatus).trigger("change");
 		//$('#cmb_rol_editar').val(data.rol_id).trigger("change");
 
@@ -173,6 +177,7 @@ function AbrirModalRegistro() {
  function Registrar_Asignatura() {
       var asignatura = $('#txt_nombre').val();
        var cantidad_horas = $('#txt_cantidad').val();
+      var creditos = $('#txt_creditos').val();
       if(asignatura.length==0) {
         return   Swal.fire( 'Mensaje de error',  'Digite los campos estan vacios', 'warning'
         );
@@ -182,7 +187,8 @@ function AbrirModalRegistro() {
         type:'POST',
         data:{
           asignatura:asignatura,
-          cantidad_horas:cantidad_horas
+          cantidad_horas:cantidad_horas,
+          creditos:creditos
         }
       }).done(function(resp){
       	//alert(resp);
@@ -209,49 +215,52 @@ function AbrirModalRegistro() {
     }
 
 
-    function Modificar_Perfil() {
-      var id = $('#txt_idrol').val();
-      var rol_actual = $('#txt_nombre_rol_actual').val();
-      var rol_nuevo = $('#txt_nombre_rol_nuevo').val();
-     var estatus =$("#cmb_estatus").val();
+    function Modificar_Asignatura() {
+      var id = $('#txt_idasignatura').val();
+      var nombre_actual = $('#txt_nombre_modulo_actual').val();
+      var nombre_nuevo = $('#txt_nombre_modulo_nuevo').val();
+      var cantidad_horas = $('#txt_cantidad_editar').val();
+      var creditos = $('#txt_creditos_editar').val();
+    // var estatus =$("#cmb_estatus").val();
 
-      if(rol_nuevo.length == 0 ) {
+      if(nombre_nuevo.length == 0 ) {
         Swal.fire('Mensaje de error','Debe digitar los campos vacios','warning');
       }
       $.ajax({
-        url:'../controlador/rol/controlador_modificar_rol.php',
+        url:'../controlador/asignaturas/controlador_modificar_asignaturas.php',
         type:'POST',
         data:{
           id:id,
-          rol_actual:rol_actual,
-          rol_nuevo:rol_nuevo,
-          estatus:estatus
+          nombre_actual:nombre_actual,
+          nombre_nuevo:nombre_nuevo,
+          cantidad_horas:cantidad_horas,
+          creditos:creditos
         }
       }).done(function(resp){
       	alert(resp);
          if(resp > 0) {
             if(resp==1) {
                 $('#modal_editar').modal('hide');
-                Swal.fire("Mensaje  de confirmaciòn","Rol editado exitosamente",
+                Swal.fire("Mensaje  de confirmaciòn","Asignatura editado exitosamente",
                     "success")
                 .then((value)=>{
-                    listar_rol();
+                    listar_asignaturas();
                // LimpiarCampos();
                     t_modulos.ajax.reload();
                 
                 });
             } else {
               //  LimpiarCampos();
-                return Swal.fire('Mensaje de error', 'Rol ya existe en el sistema, utilice otro', 'warning'
+                return Swal.fire('Mensaje de error', 'Asignatura ya existe en el sistema, utilice otro', 'warning'
                   );
             }
         }else {
-            return Swal.fire('Mensaje de error','Rol no editado','warning');
+            return Swal.fire('Mensaje de error','Asignatura no editado','warning');
         }
       })
     }
 
 
   function   LimpiarCampos() {
-    $('#txt_nombre').val("");
+    $('#txt_nombre_modulo_nuevo').val("");
   }

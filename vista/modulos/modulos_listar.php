@@ -33,21 +33,13 @@
                     <th>#</th>
                     <th>Nombre</th>
                     <th>No Horas</th>
+                    <th>Creditos</th>
                     <th>Fecha registro</th>
                     <th>Estatus</th>
                     <th>Acci&oacute;n</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>No Horas</th>
-                    <th>Fecha registro</th>
-                    <th>Estatus</th>
-                    <th>Acci&oacute;n</th>
-                  </tr>
-                </tfoot>
+              
                 </table>
             </div>
             <!-- /.box-body -->
@@ -72,6 +64,10 @@
                     <label for="">Cantidad de Horas:</label>
                     <input type="text" id="txt_cantidad" name="" class="form-control" placeholder="Cantidad de horas del modulo"><br>
                 </div>
+                 <div class="col-lg-12">
+                    <label for="">Creditos:</label>
+                    <input type="text" id="txt_creditos" name="" class="form-control" placeholder="Numero de creditos"><br>
+                </div>
               </div>
             
              
@@ -85,7 +81,40 @@
   </div>
 
 
-
+ <div class="modal fade" id="modal_editar" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Editar de Asignaturas </h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  <input type="text" id="txt_idasignatura" hidden>
+                    <label for="">Módulo:</label>
+                    <input type="text" id="txt_nombre_modulo_actual"  placeholder="Digite nombre modulo" hidden><br>
+                     <input type="text" id="txt_nombre_modulo_nuevo" name="" class="form-control" placeholder="Digite nombre modulo"><br>
+                </div>
+                <div class="col-lg-12">
+                    <label for="">Cantidad de Horas:</label>
+                    <input type="text" id="txt_cantidad_editar" name="" class="form-control" placeholder="Cantidad de horas del modulo"><br>
+                </div>
+                 <div class="col-lg-12">
+                    <label for="">Creditos:</label>
+                    <input type="text" id="txt_creditos_editar" name="" class="form-control" placeholder="Numero de creditos"><br>
+                </div>
+              </div>
+            
+             
+            </div>
+            <div class="modal-footer">
+            <button class="btn btn-primary" onclick="Modificar_Asignatura()">Registrar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+    </div>
+  </div>
 
 
 

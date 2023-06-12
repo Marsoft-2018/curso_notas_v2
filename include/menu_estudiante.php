@@ -11,5 +11,15 @@
              </span>
             </a>
        </li>
+       <li class="treeview">
+          
+
+         <a onclick="cargar_contenido('contenido_principal','tareas/tareas.php')">
+             <i class="fa  fa-cog"></i> <span>Tareas</span>
+             <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+       </li>
      </ul>
          

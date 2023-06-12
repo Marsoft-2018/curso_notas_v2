@@ -64,7 +64,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Registro de Docentes</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle"><b> Registro de Docentes</b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -128,7 +128,10 @@
                     <select class="js-example-basic-single" name="state" style="width: 100%;" id="cmb_profesion">
                    </select> <br>
                 </div>
-              
+                <div class="col-lg-3">
+                  <label for="">Hoja De Vida</label>
+                  <input type="file" id="imagen" accept="imagen/*">
+              </div>
           
 
             <div class="col-lg-12" style="text-align: center;">

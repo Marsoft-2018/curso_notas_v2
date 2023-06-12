@@ -16,7 +16,7 @@ class Modelo_Asignaturas {
 	
 
 	 function listar_modulos() {
-	 		$sql = "SELECT    `id`    , `nombre_modulo`   , `cant_horas` , `fregistro`
+	 		$sql = "SELECT    `id`    , `nombre_modulo`   , `cant_horas` , creditos, `fregistro`
     , `estatus` FROM     `asignaturas`;";
 			$arreglo = array();
 			if($consulta = $this->conexion->conexion->query($sql)){
@@ -40,8 +40,8 @@ class Modelo_Asignaturas {
 			}
 	}
 
-	function Registrar_Asignatura($asignatura,$cantidad_horas) {
-		$sql = "call  SP_REGISTRAR_Asignatura('$asignatura','$cantidad_horas')";
+	function Registrar_Asignatura($asignatura,$cantidad_horas,$creditos) {
+		$sql = "call  SP_REGISTRAR_Asignatura('$asignatura','$cantidad_horas','$creditos')";
 			if($consulta = $this->conexion->conexion->query($sql)){
 				if($row = mysqli_fetch_array($consulta)) {
 					return	$id =trim($row[0]);
@@ -49,7 +49,19 @@ class Modelo_Asignaturas {
 				 $arreglo;
 				$this->conexion->cerrar();
 		}
-}
+	}
+
+	function Modificar_Asignatura($id,$nombre_actual,$nombre_nuevo,$cantidad_horas,$creditos)
+	{
+		$sql = "call  SP_MODIFICAR_ASIGNATURA('$id','$nombre_actual','$nombre_nuevo','$cantidad_horas', '$creditos')";
+			if($consulta = $this->conexion->conexion->query($sql)){
+				if($row = mysqli_fetch_array($consulta)) {
+					return	$id =trim($row[0]);
+				}
+				 $arreglo;
+				$this->conexion->cerrar();
+		}
+	}
 
 }
 

@@ -1,5 +1,5 @@
 
- 
+
 
  <div class="col-md-12">
           <div class="box box-warning box-solid">
@@ -22,22 +22,22 @@
                  </div> <br><br>
                 </div>
 
-                 <div class="col-lg-2"> 
+                 <div class="col-lg-2">
                    <button class="btn btn-primary" style="width: 100%" onclick="AbrirModalRegistro()"><i class="fa fa-plus">Nuevo Registro</i></button>
                 </div>
                <!---  <div class="col-lg-4">
                     <label for="">Seleccione una sede</label>
-                    <select class="js-example-basic-single" 
+                    <select class="js-example-basic-single"
                           name="state" style="width: 100%;" id="cmb_sede_docente">
-                            
+
                              </select> <br> <br>
                 </div>
 
-                <div class="col-lg-2"> 
+                <div class="col-lg-2">
                   <label for="">&nbsp;</label><br>
                    <button class="btn btn-primary" style="width: 100%" onclick="ListarDocente()"><i class="fa  fa-search">Buscar</i></button> <br> <br>
                 </div>-->
-               
+
               </div>
              <table id="tabla_estudiante" class="display responsive nowrap table-bordered" style="width:100%">
                 <thead>
@@ -54,7 +54,7 @@
                     <th>Departamento</th>
                     <th>Ciudad</th>
                     <th>Telefono</th>
-                    <th>Foto</th>   
+                    <th>Foto</th>
                     <th>Vivienda</th>
                     <th>Estrato</th>
                     <th>Poblacion</th>
@@ -73,7 +73,7 @@
                     <th>Acci&oacute;n</th>
                   </tr>
                 </thead>
-               
+
                 </table>
             </div>
             <!-- /.box-body -->
@@ -105,7 +105,7 @@
       	   <label for=""><b>Apellidos </b> </label>
            <input type="text" id="txt_apellidos" class="form-control" placeholder="Apellido" onkeypress="return soloLetras(event)">
       	</div>
-        	
+
       	<div class="col-lg-4">
       	   <label for=""><b>Tipo Documento</b> </label>
             <select class="js-example-basic-single" name="state" style="width: 100%;" id="cmb_tipodocumento">
@@ -113,7 +113,7 @@
               <option value="NIT">NIT</option>
               <option value="PASAPORTE">PASAPORTE</option>
               <option value="TI">TI</option>
-             </select> <br> 
+             </select> <br>
       	</div>
         <div class="col-lg-4">
            <label for=""><b>Número Documento</b> </label>
@@ -129,7 +129,7 @@
                     <select class="js-example-basic-single" name="state" style="width: 100%;" id="cmb_sexo">
                     <option value="MASCULINO">MASCULINO</option>
                     <option value="FEMENINO">FEMENINO</option>
-                  </select> 
+                  </select>
                 </div>
             <div class="col-lg-4">
                     <label for="estatus">ESTADO CIVIL:</label>
@@ -139,7 +139,7 @@
                     <option value="CASADO">CASADO</option>
                      <option value="UNION_LIBRE">UNION_LIBRE</option>
                     <option value="CASADA">CASADA</option>
-                  </select> 
+                  </select>
             </div>
 
       	<div class="col-lg-4">
@@ -153,11 +153,11 @@
 
          <div class="col-lg-3">
                     <label for="">Ciudad:</label>
-                    <input type="text" id="txt_ciudad" class="form-control" placeholder="Ciudad " 
-                   
-                > 
+                    <input type="text" id="txt_ciudad" class="form-control" placeholder="Ciudad "
+
+                >
         </div>
-        
+
 
       	<div class="col-lg-3">
       	   <label for=""><b>Teléfono</b> </label>
@@ -168,15 +168,13 @@
 	      	<input type="file" id="imagen" accept="imagen/*">
 	     </div>
 
-      	
 
-
-             <div class="col-lg-3">
+            <div class="col-lg-3">
                     <label for="estatus"><b>Tipo Vivienda:</b></label>
                     <select class="js-example-basic-single" name="state" style="width: 100%;" id="cmb_tipo_vivienda">
                     <option value="PROPIA">PROPIA</option>
                     <option value="ALQUILADA">ALQUILADA</option>
-                  </select> 
+                  </select>
                 </div>
             <div class="col-lg-3">
                     <label for=""><b>Estrato:</b></label>
@@ -190,9 +188,9 @@
                      <option value="INDIGENA">INDIGENA</option>
                     <option value="DESPLAZADO">DESPLAZADO</option>
                      <option value="OTRO">OTRO</option>
-                  </select> 
+                  </select>
                 </div>
-            
+
                <div class="col-lg-3">
                     <label for=""><b>Eps:</b></label>
                     <input type="text" id="txt_eps" name="" class="form-control" placeholder=""><br>
@@ -216,32 +214,32 @@
                     <label for="estatus"><b>Sede:</b></label>
                     <select class="js-example-basic-single" name="state"
                     style="width: 100%;" id="cmb_sede_matricula">
-                  
-                  </select> 
+
+                  </select>
             </div>
       	   <div class="col-lg-4">
                     <label for="estatus"><b>Programa:</b></label>
                     <select class="js-example-basic-single" name="state"
                     style="width: 100%;" id="cmb_programa_matricula">
-                  
-                  </select> 
+
+                  </select>
             </div>
-             
+
                <div class="col-lg-4">
                     <label for="estatus"><b>Semestre:</b></label>
-                    <select class="js-example-basic-single" name="state" 
+                    <select class="js-example-basic-single" name="state"
                     style="width: 100%;" id="cmb_semestre_matricula">
-                   
-                  </select> 
+
+                  </select>
             </div>
-            
+
             <div class="col-lg-4">
                     <label for=""><b>Seleccione Jornada:</b></label>
                     <select class="js-example-basic-single" name="state"
                     style="width: 100%;" id="cmb_jornada">
-                   
-                   
-                  </select> 
+
+
+                  </select>
             </div>
             <!--referencia familiar -->
               <div class="col-lg-12" style="text-align: center;">
@@ -272,7 +270,7 @@
                     <label for=""><b>Email:</b></label>
                     <input type="text" id="txt_email_ref" name="" class="form-control" placeholder="Digite "><br>
                 </div>
-               
+
 
 
 
@@ -283,18 +281,18 @@
                 </div>
                   <div class="col-lg-3">
                     <label for=""><b>Usuario:</b></label>
-                    <input type="text" id="txt_usu" name="" class="form-control" 
+                    <input type="text" id="txt_usu" name="" class="form-control"
                     placeholder="Digite usuario" ><br>
                 </div>
                  <div class="col-lg-3">
                     <label for=""><b>Contraseña:</b></label>
-                    <input type="password" id="txt_contra" name="" 
+                    <input type="password" id="txt_contra" name=""
                     class="form-control" placeholder="Digite Clave" value="123456"><br>
                 </div>
 
                 <div class="col-lg-3">
                     <label for=""><b>Rol:</b></label>
-                    <select class="js-example-basic-single" name="state" style="width: 100%;" 
+                    <select class="js-example-basic-single" name="state" style="width: 100%;"
                     id="cmb_rol_matricula">
                    </select> <br>
                 </div>
@@ -305,16 +303,16 @@
                   <input type="text" id="validar_email" hidden="">
                    <br><br>
                 </div>
-                
-              
-                
+
+
+
         	</div>
-       
+
       </div>
       <div class="modal-footer">
       	 <button type="button" class="btn btn-primary" onclick="Matricular_Estudiante()">Matricular</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-       
+
       </div>
     </div>
   </div>
@@ -345,7 +343,7 @@
            <label for=""><b>Apellidos </b> </label>
            <input type="text" id="txt_apellidos_editar" class="form-control" placeholder="Apellido" onkeypress="return soloLetras(event)">
         </div>
-            
+
         <div class="col-lg-4">
            <label for=""><b>Tipo Documento</b> </label>
             <select class="js-example-basic-single" name="state" style="width: 100%;" id="cmb_tipodocumento_editar">
@@ -353,7 +351,7 @@
               <option value="NIT">NIT</option>
               <option value="PASAPORTE">PASAPORTE</option>
               <option value="TI">TI</option>
-             </select> <br> 
+             </select> <br>
         </div>
         <div class="col-lg-4">
            <label for=""><b>Número Documento</b> </label>
@@ -369,7 +367,7 @@
                     <select class="js-example-basic-single" name="state" style="width: 100%;" id="cmb_sexo_editar">
                     <option value="MASCULINO">MASCULINO</option>
                     <option value="FEMENINO">FEMENINO</option>
-                  </select> 
+                  </select>
                 </div>
             <div class="col-lg-4">
                     <label for="estatus">ESTADO CIVIL:</label>
@@ -379,7 +377,7 @@
                     <option value="CASADO">CASADO</option>
                      <option value="UNION_LIBRE">UNION_LIBRE</option>
                     <option value="CASADA">CASADA</option>
-                  </select> 
+                  </select>
             </div>
 
         <div class="col-lg-4">
@@ -393,19 +391,19 @@
 
          <div class="col-lg-4">
                     <label for="">Ciudad:</label>
-                    <input type="text" id="txt_ciudad_editar" class="form-control" placeholder="Ciudad " 
-                   
-                > 
+                    <input type="text" id="txt_ciudad_editar" class="form-control" placeholder="Ciudad "
+
+                >
         </div>
-        
+
 
         <div class="col-lg-4">
            <label for=""><b>Teléfono</b> </label>
            <input type="text" id="txt_telefono_editar" class="form-control" placeholder="tel " onkeypress="return soloNumeros(event)">
         </div>
-       
 
-        
+
+
 
 
              <div class="col-lg-3">
@@ -414,7 +412,7 @@
                     <option value="PROPIA">PROPIA</option>
                     <option value="ALQUILADA">ALQUILADA</option>
                      <option value="FAMILIAR">FAMILIAR</option>
-                  </select> 
+                  </select>
                 </div>
             <div class="col-lg-3">
                     <label for=""><b>Estrato:</b></label>
@@ -428,9 +426,9 @@
                      <option value="INDIGENA">INDIGENA</option>
                     <option value="DESPLAZADO">DESPLAZADO</option>
                      <option value="OTRO">OTRO</option>
-                  </select> 
+                  </select>
                 </div>
-            
+
                <div class="col-lg-3">
                     <label for=""><b>Eps:</b></label>
                     <input type="text" id="txt_eps_editar" name="" class="form-control" placeholder=""><br>
@@ -449,9 +447,9 @@
             <label for=""><b>Ocupación:</b></label>
             <input type="text" id="txt_ocupacion_editar" name="" class="form-control" placeholder=""><br>
         </div>
-  
-          
-            <!--referencia familiar 
+
+
+            <!--referencia familiar
               <div class="col-lg-12" style="text-align: center;">
                   <b>Referencia Familiar</b><br>
                 </div>
@@ -480,15 +478,15 @@
                     <label for=""><b>Email:</b></label>
                     <input type="text" id="txt_email_ref_editar" name="" class="form-control" placeholder="Digite correo "><br>
                 </div>-->
-                                        
-                
+
+
             </div>
-       
+
       </div>
       <div class="modal-footer">
          <button type="button" class="btn btn-warning" onclick="Modificar_Estudiante()">Modificar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-       
+
       </div>
     </div>
   </div>
@@ -500,13 +498,13 @@
 
 
 
- 
+
 
 
 
 
 <script type="text/javascript" src="../js/estudiantes.js"></script>
-    
+
     <script type="text/javascript">
         $(document).ready(function() {
            ListarEstudiante();
@@ -547,21 +545,21 @@
 
 
 
-      
+
 
 
       /*    document.getElementById("imagen_editar").addEventListener("change", () => {
-     var fileName = document.getElementById("imagen_editar").value; 
-     var idxDot = fileName.lastIndexOf(".") + 1; 
-     var extFile = fileName.substr(idxDot, fileName.length).toLowerCase(); 
-     if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){ 
+     var fileName = document.getElementById("imagen_editar").value;
+     var idxDot = fileName.lastIndexOf(".") + 1;
+     var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+     if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
 
-      //TO DO 
+      //TO DO
 
-     }else{ 
+     }else{
 
       Swal.fire("MENSAJE DE ADVERTENCIA","DEBE SELECCIONAR SOLO IMAGENES","warning");
        document.getElementById("imagen_editar").value="";
-     } 
+     }
   });*/
     </script>

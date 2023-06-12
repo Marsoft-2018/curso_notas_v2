@@ -19,7 +19,7 @@
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-          </a></li>   
+          </a></li>
            </ul>
         </li>
 
@@ -31,12 +31,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
+         
             <li>  <a onclick="cargar_contenido('contenido_principal','modulos/modulos_listar.php')" style="cursor: pointer;">
               <i class="fa  fa-share-alt-square"></i> <span>Módulos</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
-           </a></li>
+           </a>
+          </li>
            <li>
                <a onclick="cargar_contenido('contenido_principal','sedes/sedes_lista.php')" style="cursor: pointer;">
                <i class="fa fa-outdent"></i> <span>Sedes</span>
@@ -79,7 +81,7 @@
               </span>
            </a>
           </li>
-             
+
            </ul>
         </li>
 
@@ -113,7 +115,7 @@
              <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
              </span>
-            </a>       
+            </a>
 
             <a onclick="cargar_contenido('contenido_principal','calificaciones/calificaciones_admin.php')" style="cursor: pointer;">
              <i class="fa  fa-sticky-note"></i> <span>Registro Notas</span>
@@ -140,8 +142,8 @@
              <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
              </span>
-            </a></li>   
+            </a></li>
               </ul>
-            </li>       
-       
+            </li>
+
       </ul>
