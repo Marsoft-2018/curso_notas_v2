@@ -2,14 +2,16 @@ var t_estudiante
 function ListarEstudiante(){
 	// var idsede = $("#cmb_sede_docente").val();
      t_estudiante = $("#tabla_estudiante").DataTable({
-        "ordering":false,
-        "paging": false,
-        "searching": { "regex": true },
-        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
-        "pageLength": 100,
+        "ordering":false,   
+        "pageLength":10,
         "destroy":true,
         "async": false ,
-        "processing": true,
+        "responsive": true,
+      	"autoWidth": false,
+           dom: 'Bfrtip',
+        buttons: [
+        'excel', 'csv', 'pdf', 'print', 'copy',
+        ],
         "ajax":{
             "url":"../controlador/estudiantes/controlador_estudiante_listar.php",
             type:'POST',

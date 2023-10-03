@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>REPORTE NOTAS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         table{
             border-collapse: collapse;
@@ -25,11 +26,15 @@
         include '../../modelo/modelo_asignaturas.php';
 
     ?>
+    <h1 class="text-center">UNIDAD DE ESTUDIOS TECNICOS</h1>
+    <p style="text-align: center;"><b>Entidad aprobada mediante Licencia de funcionamiento No 0113 de abril 15 de 2009 emanada de Secretaría de Educación Departamental de Bolívar.
 
-    <table>
+        En salud mediante acuerdo 0279 Ministerio de la protección social.</b></p>
+    <img src="../../img/nuestro-logotipo.png" alt="" width="100px" class="text-center">
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>estudiante</th>
+                <th>Estudiante</th>
                 <?php
                     $objModulos = new Calificacion();
                     $objModulos->idPrograma = $_REQUEST['programa'];
@@ -43,7 +48,7 @@
                      }
                 ?>
                 <th>Promedio</th>
-                <th>Puesto</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -71,7 +76,7 @@
                             foreach ($modulos as $modulo) { 
                                 $objDef = new Calificacion();
                                 $objDef->idMatricula = $estudiante['id'];
-                                $objDef->idAsignatura = 1;
+                                $objDef->idAsignatura = $modulo['id'];
                                 foreach($objDef->definitiva() as $d){
                                     if ($d['definitiva'] == null){
                                         echo "<td>-</td>";
@@ -90,7 +95,6 @@
                             echo "-";
                         }
                          ?></td>
-                    <td></td>
                 </tr>            
             <?php
                 }

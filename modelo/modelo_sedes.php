@@ -11,7 +11,25 @@ class Modelo_Sedes {
 		$this->conexion->conectar();
 	}
 
+function listar_sedes_corporacion(){
+		$sql = "SELECT  
+				sedes.sede_id,
+				sedes.sede_nombre,
+				sedes.sede_ciudad,
+				sedes.fregistro,
+				sedes.estatus
 
+				 from sedes";
+			$arreglo = array();
+			if($consulta = $this->conexion->conexion->query($sql)){
+				while($consulta_vu = mysqli_fetch_assoc($consulta)) {
+						$arreglo[] =$consulta_vu;
+					
+				}
+				return $arreglo;
+				$this->conexion->cerrar();
+		}
+	}
 
 	
 

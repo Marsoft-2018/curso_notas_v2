@@ -5,14 +5,16 @@ function listar_matriculas(){
 	var idjornada = $("#cmb_jornada_matricula").val();
 	
      t_matriculas = $("#tabla_matriculas").DataTable({
-        "ordering":false,
-        "paging": false,
-        "searching": { "regex": true },
-        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
-        "pageLength": 100,
+        "ordering":false,   
+        "pageLength":10,
         "destroy":true,
         "async": false ,
-        "processing": true,
+        "responsive": true,
+      	"autoWidth": false,
+           dom: 'Bfrtip',
+        buttons: [
+        'excel', 'csv', 'pdf', 'print', 'copy',
+        ],
         "ajax":{
             "url":"../controlador/matriculas/listar_matriculas.php",
             type:'POST',

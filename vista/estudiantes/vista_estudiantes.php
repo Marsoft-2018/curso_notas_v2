@@ -45,8 +45,8 @@
                     <th>#</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Documento</th>
                     <th>Tipo</th>
+                    <th>Documento</th>
                     <th>Fecha Nac</th>
                     <th>Sexo</th>
                     <th>Estado Civil</th>
